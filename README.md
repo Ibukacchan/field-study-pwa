@@ -1,21 +1,21 @@
-# Field Study 1 — Divide To-Do PWA
+# The Scholar's Field Journal
 
-## What's included
-- `index.html`: checklist app with search, episode filters, progress bars, expand/collapse, and reset.
-- `data.json`: episodes 1–16, tasks, starting checked states, and suggested schedule.
-- `manifest.json`, `sw.js`, `icon.svg`: install/offline PWA assets.
+A mobile-friendly, dark-academia Field Study planner for GitHub Pages.
 
-## Schedule
-- EP 1–12: Oct 21–Nov 11, 2026; final checking Nov 12; buffer Nov 13.
-- EP 13–16: Nov 21–30, 2026.
-- EP 3 tasks are initially checked to match the checklist you supplied. EP 1's Observation Facilities Checklist is also initially checked.
-- Checkbox progress is stored in the browser on the current device.
+## Included files
+- `index.html` — planner interface, daily and weekly personal task views, motto, and episode checklist.
+- `data.json` — Field Study episode/task data used by the checklist.
+- `manifest.json` — installable PWA metadata.
+- `sw.js` — service worker for caching core files for offline access after the first successful visit.
+- `icon.svg`, `icon-192.png`, `icon-512.png` — app icons.
 
-## How to use/install
-A PWA needs to be served from HTTPS (or localhost); opening `index.html` directly as a file will not enable installation or service-worker offline caching.
-1. Upload the contents of this folder to a static host such as GitHub Pages or Netlify (HTTPS).
-2. Open the hosted site in Chrome on Android.
-3. Open the browser menu and choose **Install app** or **Add to Home screen**.
-4. Open it once while online so the app files can be cached for offline use.
+## Publish on GitHub Pages
+1. Download and extract this ZIP.
+2. Upload **all files inside this folder** to the root of your GitHub repository (not the enclosing folder).
+3. Keep the filenames unchanged, especially `index.html` and `data.json`.
+4. Commit the changes and ensure GitHub Pages is enabled for the correct branch/folder.
+5. Open the published HTTPS URL in Chrome. Use the browser menu and choose **Install app** or **Add to Home screen**.
 
-The included data and checklist work without a backend. Browser storage is local to that browser/device; clearing site data may erase saved checks.
+## Notes
+- Checklist checks and personal planner tasks are saved in this browser on this device using local storage; they do not sync automatically between devices.
+- Offline caching becomes available after the first successful visit while online.
