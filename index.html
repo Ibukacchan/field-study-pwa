@@ -1,139 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#5146e5">
-<meta name="description" content="Field Study 1 planner with daily and weekly to-do lists.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#211b19">
+<meta name="description" content="A dark academia planner for Field Study assignments, daily discipline, and weekly goals.">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>Field Study 1 • Divide To-Do</title>
+<link rel="icon" href="icon-192.png">
+<title>The Scholar's Field Journal</title>
 <style>
-:root{color-scheme:light;--bg:#f6f7fb;--card:#fff;--ink:#1d2440;--muted:#6b7280;--line:#e7e9f2;--accent:#5146e5;--accent2:#e9e7ff;--green:#16794b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:linear-gradient(135deg,#312e81,#6d5dfc);color:white;padding:24px 18px 22px;border-radius:0 0 24px 24px}
-.wrap{max-width:900px;margin:auto;padding:0 15px}header .wrap{padding:0 2px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.73rem;opacity:.85;font-weight:800}
-h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.1;margin:7px 0}header p{margin:8px 0 0;opacity:.92}.motto{margin-top:17px;padding:13px 14px;border:1px solid #ffffff55;background:#ffffff12;border-radius:15px;font-weight:850;letter-spacing:.035em;line-height:1.65}.motto .one-take{display:block;margin-top:7px;padding-top:7px;border-top:1px solid #ffffff55;letter-spacing:.12em;font-size:.9rem}
-main{padding:18px 0 42px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}.stat,.panel,.episode{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 14px #20244a08}.stat{padding:13px}.stat strong{font-size:1.4rem;display:block}.stat span{font-size:.78rem;color:var(--muted)}.progress{height:8px;background:#ececf5;border-radius:99px;overflow:hidden;margin-top:9px}.progress div{height:100%;background:var(--accent);width:0;transition:width .2s}
-.main-tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 12px}.main-tab,.tab,.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 13px;border-radius:11px;font:inherit;font-weight:700;cursor:pointer}.main-tab{white-space:nowrap;border-radius:999px}.main-tab.active,.tab.active{background:var(--accent2);border-color:#c9c4ff;color:#3730a3}.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
-.panel{padding:15px;margin:8px 0 15px}.panel h2{margin:0 0 5px;font-size:1.2rem}.muted{color:var(--muted);font-size:.88rem}.task-form{display:flex;gap:8px;margin-top:12px}.task-form input,.task-form select,.search{min-width:0;flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:11px;font:inherit;background:white;color:var(--ink)}.task-form button{flex:0 0 auto}.day-heading{font-weight:800;margin:17px 2px 8px}.task-list{display:grid;gap:8px}.personal-task{display:flex;align-items:flex-start;gap:10px;background:white;border:1px solid var(--line);border-radius:12px;padding:12px}.personal-task input{width:19px;height:19px;accent-color:var(--accent);margin:2px 0 0;flex:0 0 auto}.personal-task .task-text{flex:1;overflow-wrap:anywhere}.personal-task.done .task-text{text-decoration:line-through;color:#8b91a2}.delete{border:0;background:transparent;color:#9b2534;font-size:1.15rem;padding:0 4px;cursor:pointer}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.search{min-width:180px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 12px}.tab{white-space:nowrap;padding:8px 12px;border-radius:999px;color:#4b526b}.notice{padding:13px 14px;background:#fff8e9;border:1px solid #f4dfb0;border-radius:13px;margin:10px 0 16px;font-size:.9rem}
-.episode{margin-bottom:11px;overflow:hidden}.ep-head{padding:15px;display:flex;gap:12px;align-items:flex-start;cursor:pointer}.ep-number{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:var(--accent2);color:#4338ca;display:grid;place-items:center;font-weight:850}.ep-main{min-width:0;flex:1}.ep-title{font-weight:800;line-height:1.28}.ep-date{font-size:.8rem;color:var(--muted);margin-top:4px}.ep-meta{display:flex;align-items:center;gap:8px;margin-top:7px;font-size:.78rem;color:var(--muted)}.mini-progress{height:5px;background:#ececf5;border-radius:99px;overflow:hidden;flex:1;max-width:100px}.mini-progress div{height:100%;background:var(--green)}.chevron{color:var(--muted);padding:5px}.tasks{padding:0 14px 13px;border-top:1px solid var(--line)}.task{display:flex;align-items:flex-start;gap:10px;padding:10px 2px;border-bottom:1px solid #f0f1f6}.task:last-child{border-bottom:0}.task input{width:19px;height:19px;accent-color:var(--accent);margin:2px 0 0;flex:0 0 auto}.task label{flex:1;cursor:pointer;font-size:.94rem}.task.done label{text-decoration:line-through;color:#8b91a2}.empty{text-align:center;padding:30px 15px;color:var(--muted)}footer{font-size:.78rem;color:var(--muted);text-align:center;padding:15px 0 30px}
-@media(min-width:640px){.ep-head{padding:17px}.tasks{padding:0 20px 15px}.task{padding:11px 3px}}
+:root{--ink:#211b19;--ink2:#302622;--paper:#f1e6d0;--paper2:#e7d7b9;--gold:#b99a65;--muted:#76634d;--line:#d2bea0;--red:#7d4038;--green:#53614a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#211b19;color:var(--ink);font-family:Georgia,"Times New Roman",serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:900px;margin:0 auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px #0008}
+.hero{background:radial-gradient(ellipse at top right,#4a382b 0%,transparent 48%),var(--ink);color:var(--paper);padding:30px 22px 24px;border-bottom:3px double var(--gold);position:relative;overflow:hidden}
+.kicker{letter-spacing:.22em;text-transform:uppercase;font:11px Arial,sans-serif;color:var(--gold)}
+h1{font-size:clamp(32px,7vw,54px);font-weight:normal;line-height:1.02;margin:14px 0 8px;letter-spacing:-.035em}
+.subtitle{font-style:italic;color:#d5c4a5;font-size:15px}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px 0}
+.motto{font-size:clamp(14px,3.8vw,19px);line-height:1.7;letter-spacing:.08em;color:#f0e2c7}
+.motto strong{font-weight:normal;color:var(--gold)}
+.mantra{margin-top:9px;font: bold 12px Arial,sans-serif;letter-spacing:.24em;color:var(--gold)}
+main{padding:20px 16px 40px}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{flex:1;border:1px solid #9d8765;background:transparent;color:var(--muted);padding:12px 8px;text-transform:uppercase;letter-spacing:.09em;font: bold 11px Arial,sans-serif}
+.tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.panel{display:none}.panel.active{display:block}
+.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:0 0 16px}
+.eyebrow{font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+h2{font-size:27px;font-weight:normal;margin:4px 0}
+.date{font:12px Arial,sans-serif;color:var(--muted);text-align:right;line-height:1.6}
+.card{border:1px solid var(--line);background:#f8efdf;padding:16px;margin-bottom:14px;box-shadow:3px 3px 0 #d9c6a7}
+.card.dark{background:var(--ink2);color:var(--paper);border-color:#705a40}
+.card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.card-title h3{font-size:19px;font-weight:normal;margin:0}
+.count{font:11px Arial,sans-serif;color:var(--muted)}
+.progress{height:4px;background:#ded0b7;margin:12px 0 4px}.progress span{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
+.task-list{display:grid;gap:0}
+.task{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-top:1px solid #e1d2b8;line-height:1.35}
+.task:first-child{border-top:0}
+.task input[type=checkbox]{accent-color:var(--green);width:18px;height:18px;flex-shrink:0;margin:1px 0 0}
+.task .label{flex:1;overflow-wrap:anywhere}
+.task.done .label{text-decoration:line-through;color:#97876f}
+.delete{border:0;background:transparent;color:#9a7667;padding:0 3px;font:18px Arial,sans-serif}
+.add-row{display:flex;gap:8px;margin-top:12px}
+.add-row input{min-width:0;flex:1;background:#fffaf0;border:1px solid var(--line);padding:12px;color:var(--ink);border-radius:0}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:11px 14px;font: bold 11px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.btn.secondary{background:transparent;color:var(--ink)}
+.week-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.day-card{border:1px solid var(--line);background:#f8efdf;padding:13px}
+.day-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.day-name{font-size:18px}.day-date{font:11px Arial,sans-serif;color:var(--muted)}
+.day-card.today{border:2px solid var(--gold);background:#fff5e2}
+.day-card textarea{display:block;width:100%;min-height:76px;resize:vertical;border:0;border-top:1px solid var(--line);padding:10px 0 0;background:transparent;color:var(--ink);font:14px/1.5 Georgia,serif;outline:none}
+.day-card textarea::placeholder{color:#a39178}
+.note{font-size:12px;color:var(--muted);line-height:1.5}
+.footer{text-align:center;padding:20px 14px 28px;color:var(--muted);font-style:italic;font-size:13px}
+.footer strong{display:block;font:10px Arial,sans-serif;letter-spacing:.2em;color:var(--red);margin-top:8px}
+.empty{font-style:italic;color:#9b896e;padding:14px 0}
+@media(min-width:620px){.hero{padding:38px 42px 30px}main{padding:28px 34px 45px}.week-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:20px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-<div class="eyebrow">Your study & productivity planner</div>
-<h1>FIELD STUDY 1</h1>
-<p>Divide the work. Keep your progress. Finish one task at a time.</p>
-<div class="motto">YOU DO IT RIGHT.<br>AND, YOU DO IT EVERYDAY.<span class="one-take">ONE TAKE NO RETAKE</span></div>
-</div></header>
-<main class="wrap">
-<div class="stats">
- <div class="stat"><strong id="doneCount">0</strong><span>Episode tasks completed</span></div>
- <div class="stat"><strong id="totalCount">0</strong><span>Total episode tasks</span></div>
- <div class="stat"><strong id="percent">0%</strong><span>Overall progress</span><div class="progress"><div id="overallBar"></div></div></div>
-</div>
-<nav class="main-tabs" aria-label="Planner views">
-<button class="main-tab active" data-view="daily">☀️ Daily To-Do</button>
-<button class="main-tab" data-view="weekly">📅 Weekly To-Do</button>
-<button class="main-tab" data-view="episodes">📚 Episode Planner</button>
-</nav>
-
-<section id="dailyView">
- <div class="panel">
-  <h2>Today's focus</h2><div class="muted" id="todayDate"></div>
-  <form class="task-form" id="dailyForm"><input id="dailyInput" maxlength="180" placeholder="Add a task for today…" aria-label="New daily task" required><button class="btn primary" type="submit">Add</button></form>
- </div>
- <div id="dailyTasks" class="task-list"></div>
-</section>
-
-<section id="weeklyView" hidden>
- <div class="panel">
-  <h2>This week's plan</h2><div class="muted">Add tasks to a day. Your weekly list starts on Monday.</div>
-  <form class="task-form" id="weeklyForm"><input id="weeklyInput" maxlength="180" placeholder="Add a task for the week…" aria-label="New weekly task" required><select id="weeklyDay" aria-label="Choose a day"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select><button class="btn primary" type="submit">Add</button></form>
- </div>
- <div id="weeklyTasks"></div>
-</section>
-
-<section id="episodesView" hidden>
- <div class="notice"><strong>Study plan:</strong> EP 1–12 are spread from Oct 21 to Nov 11, with Nov 12 for final checking and Nov 13 as a buffer. EP 13–16 are scheduled Nov 21–30.</div>
- <div class="toolbar"><input class="search" id="search" placeholder="Search episodes or tasks…" aria-label="Search episodes or tasks"><button class="btn" id="expandBtn" type="button">Expand all</button><button class="btn" id="resetBtn" type="button">Reset checks</button></div>
- <div class="tabs"><button class="tab active" data-filter="all">All episodes</button><button class="tab" data-filter="first">EP 1–12</button><button class="tab" data-filter="later">EP 13–16</button><button class="tab" data-filter="remaining">Remaining tasks</button><button class="tab" data-filter="done">Completed episodes/tasks</button></div>
- <div id="list"></div>
-</section>
-<footer>Daily and weekly tasks are saved on this device. Episode progress remains in its existing saved checklist. Keep a backup if you clear browser data.</footer>
+<div class="app">
+<header class="hero">
+  <div class="kicker">Field Study · Personal Planner</div>
+  <h1>The Scholar's<br>Field Journal</h1>
+  <div class="subtitle">A record of effort, growth, and daily discipline.</div>
+  <div class="rule"></div>
+  <div class="motto">YOU DO IT RIGHT.<br><strong>AND, YOU DO IT EVERYDAY.</strong></div>
+  <div class="mantra">ONE TAKE. NO RETAKE.</div>
+</header>
+<main>
+  <nav class="tabs" aria-label="Planner views">
+    <button class="tab active" data-view="daily">☼ Daily Tasks</button>
+    <button class="tab" data-view="weekly">▦ Weekly View</button>
+  </nav>
+  <section class="panel active" id="daily">
+    <div class="section-head">
+      <div><div class="eyebrow">Today's page</div><h2>Daily Assignments</h2></div>
+      <div class="date" id="today-date"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><h3>Field Study · Today</h3><span class="count" id="daily-count">0 tasks</span></div>
+      <div class="task-list" id="daily-list"></div>
+      <div class="progress"><span id="daily-progress"></span></div>
+      <div class="note" id="daily-progress-label">Every small task is a promise kept.</div>
+      <form class="add-row" id="daily-form">
+        <input id="daily-input" maxlength="180" placeholder="Add today's assigned task…" aria-label="New daily task" required>
+        <button class="btn" type="submit">Add +</button>
+      </form>
+    </div>
+    <div class="card dark">
+      <div class="card-title"><h3>A note to myself</h3><span>✦</span></div>
+      <div style="font-style:italic;line-height:1.7;color:#d9c9ad">Do the work with care. Return to it tomorrow. Let consistency become your craft.</div>
+    </div>
+    <p class="note">Daily tasks are saved on this device. A fresh daily list starts each new calendar day; unfinished tasks remain available in your saved history only if you export them first.</p>
+    <button class="btn secondary" id="export-btn" type="button">Export my tasks</button>
+  </section>
+  <section class="panel" id="weekly">
+    <div class="section-head">
+      <div><div class="eyebrow">The week at a glance</div><h2>Weekly Ledger</h2></div>
+      <div class="date" id="week-range"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><h3>Plan the work. Work the plan.</h3><span class="count">MON — SUN</span></div>
+      <p class="note">Write the tasks or goals you need to complete each day. Your notes save automatically on this device.</p>
+    </div>
+    <div class="week-grid" id="week-grid"></div>
+    <div class="footer">“You do it right. And, you do it everyday.”<strong>ONE TAKE. NO RETAKE.</strong></div>
+  </section>
 </main>
+</div>
 <script>
-const STORAGE='field-study-1-checks-v1';
-const PERSONAL_STORAGE='field-study-1-personal-tasks-v1';
-let data, checks={}, filter='all', expanded=new Set([1,2,3]), expandAll=false;
-let personalTasks=[];
 const $=s=>document.querySelector(s);
-const fmt=d=>new Date(d+'T12:00:00').toLocaleDateString('en-PH',{month:'short',day:'numeric'});
-const todayKey=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
-const parseDay=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d,12)};
-const mondayKey=()=>{const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()-(d.getDay()+6)%7);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
-const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-const dayNames=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-function loadChecks(){try{checks=JSON.parse(localStorage.getItem(STORAGE)||'{}')}catch{checks={}}}
-function saveChecks(){localStorage.setItem(STORAGE,JSON.stringify(checks));renderEpisodes()}
-function key(e,i){return `ep${e}-task${i}`}
-function allTasks(){return data.episodes.flatMap(e=>e.tasks.map((t,i)=>({e,i,done:checks[key(e.n,i)]??t[1]})))}
-function isDone(e,i){return checks[key(e.n,i)]??e.tasks[i][1]}
-function loadPersonal(){try{personalTasks=JSON.parse(localStorage.getItem(PERSONAL_STORAGE)||'[]');if(!Array.isArray(personalTasks))personalTasks=[]}catch{personalTasks=[]}}
-function savePersonal(){localStorage.setItem(PERSONAL_STORAGE,JSON.stringify(personalTasks));renderPersonal()}
-function makeId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function setView(view){document.querySelectorAll('.main-tab').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('#dailyView').hidden=view!=='daily';$('#weeklyView').hidden=view!=='weekly';$('#episodesView').hidden=view!=='episodes'}
-function addTask(text,kind,date){const clean=text.trim();if(!clean)return;personalTasks.push({id:makeId(),text:clean,kind,date,done:false});savePersonal()}
-function togglePersonal(id){const t=personalTasks.find(x=>x.id===id);if(t){t.done=!t.done;savePersonal()}}
-function deletePersonal(id){personalTasks=personalTasks.filter(x=>x.id!==id);savePersonal()}
-function taskMarkup(t){return `<div class="personal-task ${t.done?'done':''}"><input type="checkbox" aria-label="Mark ${esc(t.text)} complete" data-personal-check="${t.id}" ${t.done?'checked':''}><div class="task-text">${esc(t.text)}</div><button class="delete" type="button" aria-label="Delete task" data-delete="${t.id}">×</button></div>`}
-function renderPersonal(){
- const today=todayKey(), start=mondayKey(), endDate=parseDay(start);endDate.setDate(endDate.getDate()+6);const end=dateKey(endDate);
- $('#todayDate').textContent=parseDay(today).toLocaleDateString('en-PH',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
- const todays=personalTasks.filter(t=>t.kind==='daily'&&t.date===today);
- $('#dailyTasks').innerHTML=todays.length?todays.map(taskMarkup).join(''):'<div class="empty">No tasks for today yet. Add one small step and get started.</div>';
- const weekly=personalTasks.filter(t=>t.kind==='weekly'&&t.date>=start&&t.date<=end);
- let out='';
- for(let i=0;i<7;i++){const d=parseDay(start);d.setDate(d.getDate()+i);const k=dateKey(d);const items=weekly.filter(t=>t.date===k);out+=`<div class="day-heading">${dayNames[i]} · ${d.toLocaleDateString('en-PH',{month:'short',day:'numeric'})}</div><div class="task-list">${items.length?items.map(taskMarkup).join(''):'<div class="muted">No tasks planned.</div>'}</div>`}
- $('#weeklyTasks').innerHTML=out;
- document.querySelectorAll('[data-personal-check]').forEach(el=>el.addEventListener('change',()=>togglePersonal(el.dataset.personalCheck)));
- document.querySelectorAll('[data-delete]').forEach(el=>el.addEventListener('click',()=>deletePersonal(el.dataset.delete)));
-}
-function renderEpisodes(){
- if(!data)return;
- const tasks=allTasks(), done=tasks.filter(t=>t.done).length, pct=tasks.length?Math.round(done/tasks.length*100):0;
- $('#doneCount').textContent=done;$('#totalCount').textContent=tasks.length;$('#percent').textContent=pct+'%';$('#overallBar').style.width=pct+'%';
- const q=$('#search').value.trim().toLowerCase();let html='';
- const eps=data.episodes.filter(e=>{
-  if(filter==='first'&&e.n>12)return false;if(filter==='later'&&e.n<13)return false;
-  const count=e.tasks.filter((t,i)=>isDone(e,i)).length;
-  if(filter==='remaining'&&count===e.tasks.length)return false;if(filter==='done'&&count===0)return false;
-  if(q&&!(`${e.n} ${e.title} ${e.tasks.map(t=>t[0]).join(' ')}`).toLowerCase().includes(q))return false;
-  return true;
+const today=new Date();
+const pad=n=>String(n).padStart(2,'0');
+const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const pretty=d=>d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+const storageKey='scholar-field-journal-v1';
+let data={dailyDate:dateKey(today),daily:[],weekly:{}};
+try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved&&typeof saved==='object')data={...data,...saved};}catch(e){}
+if(data.dailyDate!==dateKey(today)){data.dailyDate=dateKey(today);data.daily=[];save();}
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(data));}catch(e){alert('Could not save on this device. Please check browser storage settings.');}}
+$('#today-date').textContent=pretty(today);
+function renderDaily(){
+ const list=$('#daily-list');list.replaceChildren();
+ data.daily.forEach((task,i)=>{
+  const row=document.createElement('div');row.className='task'+(task.done?' done':'');
+  const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!task.done;cb.setAttribute('aria-label','Mark task complete');
+  cb.addEventListener('change',()=>{data.daily[i].done=cb.checked;save();renderDaily();});
+  const label=document.createElement('span');label.className='label';label.textContent=task.text;
+  const del=document.createElement('button');del.className='delete';del.type='button';del.textContent='×';del.setAttribute('aria-label','Delete task');
+  del.addEventListener('click',()=>{data.daily.splice(i,1);save();renderDaily();});
+  row.append(cb,label,del);list.append(row);
  });
- for(const e of eps){const finished=e.tasks.filter((t,i)=>isDone(e,i)).length,open=expanded.has(e.n)||expandAll;
-  const date=e.n<=12?`${fmt(e.start)}${e.start===e.end?'':' – '+fmt(e.end)}`:`${fmt(e.start)} – ${fmt(e.end)}`;
-  html+=`<article class="episode"><div class="ep-head" data-toggle="${e.n}" role="button" tabindex="0" aria-expanded="${open}"><div class="ep-number">${e.n}</div><div class="ep-main"><div class="ep-title">EP ${e.n} · ${esc(e.title)}</div><div class="ep-date">📅 ${date}${e.n<=12?' · Deadline Nov 12':' · Scheduled Nov 21–30'}</div><div class="ep-meta"><span>${finished}/${e.tasks.length} tasks</span><div class="mini-progress"><div style="width:${Math.round(finished/e.tasks.length*100)}%"></div></div><span>${Math.round(finished/e.tasks.length*100)}%</span></div></div><div class="chevron">${open?'⌃':'⌄'}</div></div>`;
-  if(open){html+='<div class="tasks">';e.tasks.forEach((t,i)=>{const d=isDone(e,i);if(filter==='remaining'&&d)return;if(filter==='done'&&!d)return;html+=`<div class="task ${d?'done':''}"><input type="checkbox" id="${key(e,i)}" data-ep="${e.n}" data-i="${i}" ${d?'checked':''}><label for="${key(e,i)}">${esc(t[0])}</label></div>`});html+='</div>'}
-  html+='</article>';
- }
- $('#list').innerHTML=html||'<div class="empty">No matching tasks. Try another search or filter.</div>';
- $('#list').querySelectorAll('input[type=checkbox]').forEach(el=>el.addEventListener('change',()=>{checks[key(Number(el.dataset.ep),Number(el.dataset.i))]=el.checked;saveChecks()}));
- $('#list').querySelectorAll('[data-toggle]').forEach(el=>{const toggle=()=>{const n=Number(el.dataset.toggle);if(expanded.has(n))expanded.delete(n);else expanded.add(n);expandAll=false;renderEpisodes()};el.addEventListener('click',toggle);el.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();toggle()}})});
+ if(!data.daily.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='Your page is clear. Add your first assigned task above.';list.append(empty);}
+ const done=data.daily.filter(t=>t.done).length,total=data.daily.length;
+ $('#daily-count').textContent=`${done} / ${total} complete`;
+ $('#daily-progress').style.width=(total?done/total*100:0)+'%';
+ $('#daily-progress-label').textContent=total?`${Math.round(done/total*100)}% complete · Keep going with intention.`:'Every small task is a promise kept.';
 }
-document.querySelectorAll('.main-tab').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
-$('#dailyForm').addEventListener('submit',e=>{e.preventDefault();addTask($('#dailyInput').value,'daily',todayKey());$('#dailyInput').value='';$('#dailyInput').focus()});
-$('#weeklyForm').addEventListener('submit',e=>{e.preventDefault();const d=parseDay(mondayKey());d.setDate(d.getDate()+Number($('#weeklyDay').value));addTask($('#weeklyInput').value,'weekly',dateKey(d));$('#weeklyInput').value='';$('#weeklyInput').focus()});
-$('#search').addEventListener('input',renderEpisodes);
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));renderEpisodes()}));
-$('#expandBtn').addEventListener('click',()=>{expandAll=!expandAll;expanded=expandAll?new Set(data.episodes.map(e=>e.n)):new Set();$('#expandBtn').textContent=expandAll?'Collapse all':'Expand all';renderEpisodes()});
-$('#resetBtn').addEventListener('click',()=>{if(confirm('Reset every saved episode checkbox to the original checklist status? This cannot be undone.')){checks={};localStorage.removeItem(STORAGE);renderEpisodes()}});
-loadPersonal();renderPersonal();
-fetch('data.json').then(r=>{if(!r.ok)throw new Error('data.json unavailable');return r.json()}).then(d=>{data=d;loadChecks();renderEpisodes()}).catch(()=>{$('#list').innerHTML='<div class="empty">Could not load the episode checklist. Reopen the app while connected once.</div>'});
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+$('#daily-form').addEventListener('submit',e=>{e.preventDefault();const input=$('#daily-input');const text=input.value.trim();if(!text)return;data.daily.push({text,done:false});save();input.value='';renderDaily();input.focus();});
+const start=new Date(today);let offset=(start.getDay()+6)%7;start.setDate(start.getDate()-offset);
+const end=new Date(start);end.setDate(start.getDate()+6);
+$('#week-range').textContent=`${start.toLocaleDateString(undefined,{month:'short',day:'numeric'})} – ${end.toLocaleDateString(undefined,{month:'short',day:'numeric'})}`;
+const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+function renderWeek(){
+ const grid=$('#week-grid');grid.replaceChildren();
+ days.forEach((day,i)=>{
+  const d=new Date(start);d.setDate(start.getDate()+i);const key=dateKey(d);
+  const card=document.createElement('div');card.className='day-card'+(key===dateKey(today)?' today':'');
+  const top=document.createElement('div');top.className='day-top';
+  const name=document.createElement('div');name.className='day-name';name.textContent=day;
+  const date=document.createElement('div');date.className='day-date';date.textContent=d.toLocaleDateString(undefined,{month:'short',day:'numeric'});
+  top.append(name,date);
+  const area=document.createElement('textarea');area.maxLength=3000;area.placeholder=key===dateKey(today)?'Today’s goals and assigned tasks…':'Tasks and goals for '+day+'…';area.value=data.weekly[key]||'';area.setAttribute('aria-label',day+' tasks');
+  area.addEventListener('input',()=>{data.weekly[key]=area.value;save();});
+  card.append(top,area);grid.append(card);
+ });
+}
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));
+ document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===btn.dataset.view));
+}));
+$('#export-btn').addEventListener('click',()=>{
+ const blob=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),...data},null,2)],{type:'application/json'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='scholars-field-journal-tasks.json';a.click();URL.revokeObjectURL(url);
+});
+renderDaily();renderWeek();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
